@@ -23,36 +23,32 @@
     <script src="src/dist/abn_tree_directive.js"></script>
     <script src="src/app.js"></script>
     <script src="src/map.controller.js"></script>
-    <script src="src/leftMap.controller.js"></script>
-    <script src="src/rightMap.controller.js"></script>
-    <script src="js/dataLeftService.js"></script>
-    <script src="js/dataRightService.js"></script>
-    <script src="js/map.service.js"></script>
+    <!--<script src="src/leftMap.controller.js"></script>-->
+    <!--<script src="src/rightMap.controller.js"></script>-->
+    <!--<script src="js/dataLeftService.js"></script>-->
+    <!--<script src="js/dataRightService.js"></script>-->
+    <!--<script src="js/map.service.js"></script>-->
+    <!--<script src="src/parent.controller.js"></script>-->
 
 
 </head>
 <body  >
-<div class="content">
-    <div id="listMap" ng-controller ="leftMapCtrl">
+<div class="content" ng-controller ="mapCtrl">
+    <div id="listMap">
         <abn-tree  tree-data="my_data" tree-control="my_tree"
-                   on-select="my_tree_handler(branch)"
+                   on-select="my_tree_handler(branch.children)"
                    expand-level="2"
                    initial-selection="Granny Smith">
-
         </abn-tree>
     </div>
 
-    <div id="mapId" ng-controller ="mapCtrl">
+    <div id="mapId"></div>
 
-
-    </div>
-
-    <div id="resultMap" ng-controller="rightMapCtrl">
+    <div id="resultMap">
         <ul class="select_map">
-            <li ng-repeat="row in my_select track by row.label">
+            <li ng-repeat="row in my_select">
                 <a>
-                    <span>{{ row.label }} </span>
-                    <span>{{$index}}</span>
+                    <span>{{ row }} </span>
 
                 </a>
                 <button class="delete" ng-click="deleteListItem(my_select, $index)">Delete</button>
