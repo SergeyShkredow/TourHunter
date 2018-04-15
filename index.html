@@ -36,7 +36,7 @@
 <div class="content" ng-controller ="mapCtrl">
     <div id="listMap">
         <abn-tree  tree-data="my_data" tree-control="my_tree"
-                   on-select="my_tree_handler(branch.children)"
+                   on-select="my_tree_handler(branch, branch.children)"
                    expand-level="2"
                    initial-selection="Granny Smith">
         </abn-tree>
@@ -46,12 +46,12 @@
 
     <div id="resultMap">
         <ul class="select_map">
-            <li ng-repeat="row in my_select">
+            <li ng-repeat="row in select_cities">
                 <a>
                     <span>{{ row }} </span>
 
                 </a>
-                <button class="delete" ng-click="deleteListItem(my_select, $index)">Delete</button>
+                <button class="delete" ng-click="deleteListItem(select_cities, $index)">Delete</button>
             </li>
         </ul>
     </div>
